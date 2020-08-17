@@ -10,7 +10,7 @@ export default class Client {
 
         return fetch(host + endpoint, options ?? {
                 headers: {
-                    'User-Agent': 'ctgp-rest (https://npmjs.com/ctgp-rest)'
+                    'User-Agent': 'ctgp-rest (https://github.com/y21/ctgp-rest)'
                 }
             }).then(resp => {
                 if (!Util.isJson(resp)) {
