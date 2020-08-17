@@ -4,7 +4,7 @@ import * as Util from './util';
 
 const host = 'https://tt.chadsoft.co.uk/';
 
-export default class Client {
+export class Client {
     public static getEndpoint<T>(endpoint: string, options?: RequestInit): Promise<T> {
         if (!endpoint.endsWith('.json')) endpoint += '.json';
 
