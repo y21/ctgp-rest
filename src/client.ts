@@ -2,7 +2,7 @@ import * as Types from './types';
 import fetch, { RequestInit } from 'node-fetch';
 import * as Util from './util';
 
-const host = 'https://tt.chadsoft.co.uk/';
+const host = 'https://tt.chadsoft.co.uk';
 
 export class Client {
     public static getEndpoint<T>(endpoint: string, options?: RequestInit): Promise<T> {
@@ -49,10 +49,11 @@ export class Client {
         return this.getEndpoint<Types.Responses.TrackLeaderboards>(Types.Endpoints.CUSTOM_TRACKS);
     }
 
-    public static getTrack(hash: string) {
-        return this.getEndpoint(Util.formatUrl({
+    public static getTrack(hash: string, category = '00') {
+        return this.getEndpoint<Types.Responses.Track>(Util.formatUrl({
             prefix: hash.substr(0, 2),
-            hash: hash.substr(2)
+            hash: hash.substr(2),
+			category
         }, Types.Endpoints.TRACK));
     }
 }

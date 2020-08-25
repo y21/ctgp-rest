@@ -1,6 +1,6 @@
 export const BomRegex = new RegExp("^[^{]");
 export const PidRegex = new RegExp("^[A-F\\d]{16}$", "i");
-export const RouteRegex = new RegExp("/:\\w+");
+export const RouteRegex = new RegExp("/:(\\w+)", "g");
 
 export namespace Endpoints {
     export const INDEX = "/index"
@@ -8,7 +8,7 @@ export namespace Endpoints {
     export const PROFILE = "/players/:prefix/:hash";
     export const ORIGINAL_TRACKS = "/original-track-leaderboards";
     export const CUSTOM_TRACKS = "/ctgp-leaderboards";
-    export const TRACK = "/leaderboard/:prefix/:hash";
+    export const TRACK = "/leaderboard/:prefix/:hash/:category";
 }
 
 export namespace Responses {

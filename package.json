@@ -1,6 +1,6 @@
 {
   "name": "ctgp-rest",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A REST client for the CTGP API",
   "main": "dist/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "y21",
   "license": "ISC",
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "node-fetch": "^2.6.0"
   }
 }
