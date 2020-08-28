@@ -1,14 +1,14 @@
-export const BomRegex = new RegExp("^[^{]");
-export const PidRegex = new RegExp("^[A-F\\d]{16}$", "i");
-export const RouteRegex = new RegExp("/:(\\w+)", "g");
+export const BomRegex = new RegExp('^[^{]');
+export const PidRegex = new RegExp('^[A-F\\d]{16}$', 'i');
+export const RouteRegex = new RegExp('/:(\\w+)', 'g');
 
 export namespace Endpoints {
-    export const INDEX = "/index"
+    export const INDEX = '/index'
     export const STATS = INDEX;
-    export const PROFILE = "/players/:prefix/:hash";
-    export const ORIGINAL_TRACKS = "/original-track-leaderboards";
-    export const CUSTOM_TRACKS = "/ctgp-leaderboards";
-    export const TRACK = "/leaderboard/:prefix/:hash/:category";
+    export const PROFILE = '/players/:prefix/:hash';
+    export const ORIGINAL_TRACKS = '/original-track-leaderboards';
+    export const CUSTOM_TRACKS = '/ctgp-leaderboards';
+    export const TRACK = '/leaderboard/:prefix/:hash/:category';
 }
 
 export namespace Responses {
@@ -57,7 +57,24 @@ export namespace Responses {
     }
 
     export interface RecentRecord {
-        
+        href: string,
+        country: number,
+        region: number,
+        continent: number,
+        player: string,
+        trackId: string,
+        trackName: string,
+        trackVersion: string,
+        '200cc': boolean,
+        categoryId: number,
+        defaultTrack: boolean,
+        finishTime: string,
+        finishTimeSimple: string,
+        hash: string,
+        vehicleId: number,
+        driverId: number,
+        dateSet: string,
+        isTie: boolean
     }
 
     export interface Stats {
@@ -65,7 +82,7 @@ export namespace Responses {
         uniquePlayers: number,
         leaderboardCount: number,
         ghostCount: number,
-        // recentRecords:
+        recentRecords: Array<RecentRecord>
     }
 
     export interface ProfileGhost {
@@ -75,7 +92,7 @@ export namespace Responses {
         trackId: string,
         trackName: string,
         finishTime: string,
-        finishTimeSimle: string,
+        finishTimeSimple: string,
         bestSplit: string,
         bestSplitSimple: string,
         hash: string,
@@ -90,6 +107,7 @@ export namespace Responses {
 
     export interface Profile {
         _links: Links,
+        usbGcnAdapterAttached: boolean,
         playerId: string,
         ghostCount: number,
         stars: ProfileStars<number>,
